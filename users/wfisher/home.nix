@@ -1,3 +1,4 @@
+{ pkgs, ...}:
 {
 	programs.zsh = {
 		enable = true;
@@ -11,10 +12,12 @@
 		enable = true;
 	};
 
-	environment.systemPackages = with pkgs; [
+	home.packages = with pkgs; [
     	gh
 	    google-chrome
 	    gnome3.gnome-tweaks
+		spotify
+		discord
 	];
 
 	home.stateVersion = "24.11";
