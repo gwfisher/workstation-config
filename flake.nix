@@ -1,15 +1,22 @@
 {
-  description = "A very basic flake";
+  description = "PraetorTEL NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-  };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    microvm.url = "github:astro/microvm.nix";
+    microvm.inputs.nixpkgs.follows = "nixpkgs";
+};
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, ...  }@inputs: {
+    nixosConfigurations = {
+      odin = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
+        specialArgs = { inherit inputs; };
+        imports = [
+          ./hosts/odin
+        ];
+      };
+    };
   };
 }
