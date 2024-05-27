@@ -1,5 +1,10 @@
 { pkgs, ...}:
 {
+
+	imports = [
+		../modules/home-manager/nur
+	];
+
 	programs.zsh = {
 		enable = true;
 	};

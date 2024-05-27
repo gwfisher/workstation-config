@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -14,6 +15,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Virtualization
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -70,7 +77,7 @@
   users.users.wfisher = {
     isNormalUser = true;
     description = "Wes Fisher";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -88,6 +95,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    lshw
+    sshfs
+    tmux
   ];
 
 
