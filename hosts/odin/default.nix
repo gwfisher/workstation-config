@@ -93,6 +93,8 @@
 
   programs.git.enable = true; 
 
+  services.tailscale.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -102,8 +104,9 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
         gh
-	google-chrome
-	gnome3.gnome-tweaks
+	      google-chrome
+	      gnome3.gnome-tweaks
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

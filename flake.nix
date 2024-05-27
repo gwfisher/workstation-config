@@ -2,7 +2,7 @@
   description = "PraetorTEL NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     microvm.url = "github:astro/microvm.nix";
     microvm.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -10,7 +10,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 };
 
-  outputs = { self, nixpkgs, home-manager, ...  }@inputs: {
+  outputs = { self, nixpkgs, home-manager, microvm, ...  }@inputs: {
     nixosConfigurations = {
       odin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -19,7 +19,8 @@
         modules = [
           ./hosts/odin
 
-	  home-manager.nixosModules.home-manager
+          microvm.nixosModules.host
+	        home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
