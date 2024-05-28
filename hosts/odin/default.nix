@@ -87,6 +87,15 @@
     ];
   };
 
+  programs.gpg = {
+    enable = true;
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+    enableSSHSupport = true;
+  };
 
   programs.git.enable = true; 
 

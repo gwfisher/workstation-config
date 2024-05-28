@@ -19,14 +19,6 @@
 		enable = true;
 	};
 
-	programs.gpg = {
-		enable = true;
-		agent = {
-			enable = true;
-			pinentryPackage = "gnome3";
-		};
-	};
-
 	home.packages = with pkgs; [
     	gh
 	    google-chrome
