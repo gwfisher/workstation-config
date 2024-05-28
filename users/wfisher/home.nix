@@ -1,8 +1,10 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 {
+	home.username = "wfisher";
+	home.homeDirectory = "/home/wfisher";
 
 	imports = [
-		../modules/home-manager/nur
+		./modules/ssh
 	];
 
 	programs.zsh = {
@@ -23,8 +25,11 @@
 	    gnome3.gnome-tweaks
 		spotify
 		discord
+		pipx
+		
 	];
 
 	home.stateVersion = "24.11";
 	programs.home-manager.enable = true;
+	
 }
