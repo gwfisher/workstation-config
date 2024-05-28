@@ -1,4 +1,6 @@
+{ config, pkgs, ...}:
+
 {
     hardware.sane.enable = true;
-    hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+    hardware.sane.extraBackends = [ pkgs.sane-airscan ];
 }

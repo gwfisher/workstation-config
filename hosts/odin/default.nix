@@ -24,7 +24,11 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "odin"; # Define your hostname.
+  networking.hostName = "odin"; 
+  networking.firewall.enable = false;
+  
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;# Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
