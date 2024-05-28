@@ -19,7 +19,7 @@
             };
             "book" = {
                 hostname = "book";
-                user = "u0_a187";
+                user = "u0_a189";
                 port = 8022;
             };
         };
