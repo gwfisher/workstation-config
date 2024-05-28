@@ -77,7 +77,7 @@
   users.users.wfisher = {
     isNormalUser = true;
     description = "Wes Fisher";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "scanner" "lp"];
     packages = with pkgs; [
     #  thunderbird
     ];
