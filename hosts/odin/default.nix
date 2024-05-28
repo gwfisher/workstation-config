@@ -87,13 +87,10 @@
     ];
   };
 
-  programs.gpg = {
-    enable = true;
-  };
-
+  services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "gnome3";
+    pinentryPackage = pkgs.pinentry-gnome3;
     enableSSHSupport = true;
   };
 
@@ -111,6 +108,8 @@
     lshw
     sshfs
     tmux
+    pinentry
+    pinentry-gnome3
   ];
 
 
