@@ -26,6 +26,7 @@
 		spotify
 		discord
 		pipx
+		obsidian
 		
 	];
 
