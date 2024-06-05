@@ -10,20 +10,6 @@
 	programs.zsh = {
 		enable = true;
 		enableCompletion = true;
-		ohMyZsh = {
-			enable = true;
-      		autosuggestions.enable = true;
-      		zsh-autoenv.enable = true;
-      		syntaxHighlighting.enable = true;
-      		oh-my-zsh = {
-         		enable = true;
-         		theme = "agnoster";
-         		plugins = [
-           			"git"
-           			"history"
-				];
-			};
-		};
 	};
 
 	home.sessionVariables = rec {
@@ -35,6 +21,12 @@
 		settings = {
 				font_family = "Inconsolata";
 				font_size = "12";
+				tab_bar_edge = "top";
+				tab_bar_style = "powerline";
+				tab_powerline_style = "angled";
+				allow_remote_control = "yes";
+				shell_integration = "enabled";
+
 		};
 		extraConfig = "include ./nord.conf";
 	};
