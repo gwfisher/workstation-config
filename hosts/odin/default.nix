@@ -79,6 +79,7 @@
   };
 
   users.users.wfisher = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Wes Fisher";
     extraGroups = [ "networkmanager" "wheel" "docker" "scanner" "lp"];
@@ -92,7 +93,10 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-gnome3;
     enableSSHSupport = true;
+    enableExtraSocket = true;
   };
+
+  programs.zsh.enable = true;
 
   programs.git.enable = true; 
 
@@ -110,6 +114,8 @@
     tmux
     pinentry
     pinentry-gnome3
+    evolution
+    inetutils
   ];
 
 

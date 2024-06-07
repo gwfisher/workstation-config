@@ -10,6 +10,14 @@
 	programs.zsh = {
 		enable = true;
 		enableCompletion = true;
+		oh-my-zsh = {
+			enable = true;
+			theme = "agnoster";
+			plugins = [ "git" ];
+		};
+		shellAliases = {
+			update = "sudo nixos-rebuild switch";
+		};
 	};
 
 	home.sessionVariables = rec {
@@ -33,6 +41,12 @@
 	
 	programs.vscode = {
 		enable = true;
+	};
+
+	programs.neovim = {
+		enable = true;
+		viAlias = true;
+		vimAlias = true;
 	};
 
 
