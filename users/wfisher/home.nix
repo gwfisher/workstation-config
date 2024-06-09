@@ -62,6 +62,8 @@
 		gimp
 		unzip
 		zstd
+		remmina
+
 		
 	];
 
