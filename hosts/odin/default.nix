@@ -22,6 +22,22 @@
     enableNvidia = true;
   };
 
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "odin"; 
@@ -82,7 +98,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Wes Fisher";
-    extraGroups = [ "networkmanager" "wheel" "docker" "scanner" "lp"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "scanner" "lp" "libvirtd" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -116,9 +132,12 @@
     pinentry-gnome3
     evolution
     inetutils
+    virt-manager
+    shortwave
+    amber-lang
   ];
 
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
